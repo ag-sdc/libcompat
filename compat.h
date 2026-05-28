@@ -64,6 +64,11 @@ void qsort_r(void *base, size_t nel, size_t width,
 char *secure_getenv(const char *name);
 #endif
 
+#ifndef HAVE_PROGRAM_INVOCATION_SHORT_NAME
+#include <stdlib.h>
+#define program_invocation_short_name getprogname()
+#endif
+
 #endif
 
 #endif
