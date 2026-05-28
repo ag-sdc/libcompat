@@ -60,6 +60,10 @@ void qsort_r(void *base, size_t nel, size_t width,
 	     int (*compare)(const void *a, const void *b, void *context),
 	     void *arg);
 
+#ifndef HAVE_SECURE_GETENV
+char *secure_getenv(const char *name);
+#endif
+
 #endif
 
 #endif

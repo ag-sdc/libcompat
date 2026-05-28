@@ -91,4 +91,19 @@ void qsort_r(void *base, size_t nel, size_t width,
 	qsort_r_ctx = old_ctx;
 }
 
+#ifndef HAVE_SECURE_GETENV
+#include <stdlib.h>
+#include <unistd.h>
+char *secure_getenv(const char *name) {
+#if defined(HAVE_ISSETUGID)
+  if (issetugid())
+    return NULL;
+#else
+  if (getuid() != geteuid() || getgid() != getegid())
+    return NULL;
+#endif
+  return getenv(name);
+}
+#endif
+
 #endif
