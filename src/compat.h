@@ -9,10 +9,10 @@
 
 #ifdef __ANDROID__
 
-#include "pthread.h"
-#include "qsort.h"
 #include "getenv.h"
 #include "progname.h"
+#include "pthread.h"
+#include "qsort.h"
 #include "strverscmp.h"
 #include "versionsort.h"
 

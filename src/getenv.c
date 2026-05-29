@@ -16,9 +16,9 @@
 
 #ifdef __ANDROID__
 
+#include "getenv.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "compat.h"
 
 #ifndef HAVE_SECURE_GETENV
 char *secure_getenv(const char *name) {
@@ -31,5 +31,7 @@ char *secure_getenv(const char *name) {
 #endif
   return getenv(name);
 }
+
+#endif
 
 #endif

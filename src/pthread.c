@@ -16,9 +16,10 @@
 
 #ifdef __ANDROID__
 
-#include <string.h>
-#include <signal.h>
 #include "pthread.h"
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
  * Workaround for pthread_cancel() in Android, using pthread_kill() instead, as
