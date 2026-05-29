@@ -16,9 +16,8 @@
 
 #ifdef __ANDROID__
 
-#include "pthread.h"
+#include "compat_pthread.h"
 #include <signal.h>
-#include <stdlib.h>
 #include <string.h>
 
 /*

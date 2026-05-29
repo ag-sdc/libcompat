@@ -9,4 +9,4 @@ install(TARGETS compat compat_static
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib)
 
-install(FILES compat.h pthread.h qsort.h getenv.h progname.h strverscmp.h versionsort.h DESTINATION include)
+install(FILES compat.h compat_pthread.h qsort.h getenv.h progname.h strverscmp.h versionsort.h DESTINATION include)
