@@ -16,8 +16,8 @@
 
 #ifdef __ANDROID__
 
-#include "strverscmp.h"
 #include <ctype.h>
+#include <libcompat/strverscmp.h>
 #include <string.h>
 
 /*

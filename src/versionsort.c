@@ -16,9 +16,9 @@
 
 #ifdef __ANDROID__
 
-#include "versionsort.h"
-#include "strverscmp.h"
 #include <dirent.h>
+#include <libcompat/strverscmp.h>
+#include <libcompat/versionsort.h>
 
 /*
  * GNU versionsort implementation

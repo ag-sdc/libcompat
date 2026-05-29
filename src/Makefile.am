@@ -1,6 +1,11 @@
-AM_CFLAGS = -DANDROID
+AM_CFLAGS = -DANDROID -I$(srcdir)/include
 
 lib_LTLIBRARIES = libcompat.la
 libcompat_la_SOURCES = pthread.c qsort.c getenv.c progname.c strverscmp.c versionsort.c
-include_HEADERS = compat.h compat_pthread.h qsort.h getenv.h progname.h strverscmp.h versionsort.h
+include_HEADERS = include/compat.h
+libcompat_includedir = $(includedir)/libcompat
+libcompat_include_HEADERS = include/libcompat/pthread.h include/libcompat/qsort.h include/libcompat/getenv.h include/libcompat/progname.h include/libcompat/strverscmp.h include/libcompat/versionsort.h
 libcompat_la_LDFLAGS = -version-info 1:0:0
+
+install-data-hook:
+	$(LN_S) -f compat.h $(DESTDIR)$(includedir)/libcompat.h

@@ -16,7 +16,7 @@
 
 #ifdef __ANDROID__
 
-#include "compat_pthread.h"
+#include <libcompat/pthread.h>
 #include <signal.h>
 #include <string.h>
 
@@ -30,28 +30,26 @@ int pthread_setcanceltype(int type, int *oldtype) { return 0; }
 int pthread_setcancelstate(int state, int *oldstate) { return 0; }
 
 int pthread_cancel(pthread_t thread_id) {
-	int status;
+  int status;
 
-	status = set_thread_exit_handler();
-	if (status == 0)
-		status = pthread_kill(thread_id, SIGUSR1);
+  status = set_thread_exit_handler();
+  if (status == 0)
+    status = pthread_kill(thread_id, SIGUSR1);
 
-	return status;
+  return status;
 }
 
-void thread_exit_handler(int sig) {
-	pthread_exit(0);
-}
+void thread_exit_handler(int sig) { pthread_exit(0); }
 
 int set_thread_exit_handler() {
-	struct sigaction actions;
+  struct sigaction actions;
 
-	memset(&actions, 0, sizeof(actions));
-	sigemptyset(&actions.sa_mask);
-	actions.sa_flags = 0;
-	actions.sa_handler = thread_exit_handler;
+  memset(&actions, 0, sizeof(actions));
+  sigemptyset(&actions.sa_mask);
+  actions.sa_flags = 0;
+  actions.sa_handler = thread_exit_handler;
 
-	return sigaction(SIGUSR1, &actions, NULL);
+  return sigaction(SIGUSR1, &actions, NULL);
 }
 
 #endif

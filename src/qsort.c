@@ -16,7 +16,7 @@
 
 #ifdef __ANDROID__
 
-#include "qsort.h"
+#include <libcompat/qsort.h>
 #include <stdlib.h>
 
 struct qsort_r_context {

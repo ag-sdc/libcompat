@@ -9,12 +9,12 @@
 
 #ifdef __ANDROID__
 
-#include "compat_pthread.h"
-#include "getenv.h"
-#include "progname.h"
-#include "qsort.h"
-#include "strverscmp.h"
-#include "versionsort.h"
+#include <libcompat/pthread.h>
+#include <libcompat/getenv.h>
+#include <libcompat/progname.h>
+#include <libcompat/qsort.h>
+#include <libcompat/strverscmp.h>
+#include <libcompat/versionsort.h>
 
 #endif
 

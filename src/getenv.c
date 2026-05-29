@@ -16,7 +16,7 @@
 
 #ifdef __ANDROID__
 
-#include "getenv.h"
+#include <libcompat/getenv.h>
 #include <stdlib.h>
 #include <unistd.h>
 
