@@ -13,6 +13,8 @@
 #include "qsort.h"
 #include "getenv.h"
 #include "progname.h"
+#include "strverscmp.h"
+#include "versionsort.h"
 
 #endif
 
