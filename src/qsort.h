@@ -7,10 +7,14 @@
 #ifndef __COMPAT_QSORT_H__
 #define __COMPAT_QSORT_H__
 
+#ifdef __ANDROID__
+
 #include <stddef.h>
 
 void qsort_r(void *base, size_t nel, size_t width,
 	     int (*compare)(const void *a, const void *b, void *context),
 	     void *arg);
+
+#endif
 
 #endif

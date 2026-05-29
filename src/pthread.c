@@ -14,6 +14,8 @@
  * Boston, MA 021110-1307, USA.
  */
 
+#ifdef __ANDROID__
+
 #include <string.h>
 #include <signal.h>
 #include "pthread.h"
@@ -51,3 +53,5 @@ int set_thread_exit_handler() {
 
 	return sigaction(SIGUSR1, &actions, NULL);
 }
+
+#endif

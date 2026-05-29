@@ -7,6 +7,8 @@
 #ifndef __COMPAT_PTHREAD_H__
 #define __COMPAT_PTHREAD_H__
 
+#ifdef __ANDROID__
+
 #include <pthread.h>
 
 #define PTHREAD_CANCELED			((void *)-1)
@@ -22,5 +24,7 @@ int pthread_cancel(pthread_t thread_id);
 
 int set_thread_exit_handler();
 void thread_exit_handler(int sig);
+
+#endif
 
 #endif

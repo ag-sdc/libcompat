@@ -14,6 +14,8 @@
  * Boston, MA 021110-1307, USA.
  */
 
+#ifdef __ANDROID__
+
 #include <string.h>
 #include <ctype.h>
 #include "strverscmp.h"
@@ -46,3 +48,5 @@ int strverscmp(const char *l0, const char *r0)
 
 	return l[i] - r[i];
 }
+
+#endif

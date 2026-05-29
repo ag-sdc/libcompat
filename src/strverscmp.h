@@ -7,6 +7,10 @@
 #ifndef __COMPAT_STRVERSCMP_H__
 #define __COMPAT_STRVERSCMP_H__
 
+#ifdef __ANDROID__
+
 int strverscmp(const char *l0, const char *r0);
+
+#endif
 
 #endif

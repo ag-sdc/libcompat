@@ -14,6 +14,8 @@
  * Boston, MA 021110-1307, USA.
  */
 
+#ifdef __ANDROID__
+
 #include <stdlib.h>
 #include "qsort.h"
 
@@ -52,3 +54,5 @@ void qsort_r(void *base, size_t nel, size_t width,
 	/* Restore the old context after qsort is finished. */
 	qsort_r_ctx = old_ctx;
 }
+
+#endif

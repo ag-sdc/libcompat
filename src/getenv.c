@@ -14,6 +14,8 @@
  * Boston, MA 021110-1307, USA.
  */
 
+#ifdef __ANDROID__
+
 #include <stdlib.h>
 #include <unistd.h>
 #include "compat.h"
@@ -29,4 +31,5 @@ char *secure_getenv(const char *name) {
 #endif
   return getenv(name);
 }
+
 #endif

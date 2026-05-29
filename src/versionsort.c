@@ -14,6 +14,8 @@
  * Boston, MA 021110-1307, USA.
  */                                                                            \
 
+#ifdef __ANDROID__
+
 #include <dirent.h>
 #include "versionsort.h"
 #include "strverscmp.h"
@@ -26,3 +28,5 @@ int versionsort(const struct dirent **a, const struct dirent **b)
 {
     return strverscmp((*a)->d_name, (*b)->d_name);
 }
+
+#endif

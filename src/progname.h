@@ -7,9 +7,13 @@
 #ifndef __COMPAT_PROGNAME_H__
 #define __COMPAT_PROGNAME_H__
 
+#ifdef __ANDROID__
+
 #ifndef HAVE_PROGRAM_INVOCATION_SHORT_NAME
 #include <stdlib.h>
 #define program_invocation_short_name getprogname()
+#endif
+
 #endif
 
 #endif

@@ -7,8 +7,12 @@
 #ifndef __COMPAT_VERSIONSORT_H__
 #define __COMPAT_VERSIONSORT_H__
 
+#ifdef __ANDROID__
+
 #include <dirent.h>
 
 int versionsort(const struct dirent **a, const struct dirent **b);
+
+#endif
 
 #endif

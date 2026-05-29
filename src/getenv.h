@@ -7,8 +7,12 @@
 #ifndef __COMPAT_GETENV_H__
 #define __COMPAT_GETENV_H__
 
+#ifdef __ANDROID__
+
 #ifndef HAVE_SECURE_GETENV
 char *secure_getenv(const char *name);
+#endif
+
 #endif
 
 #endif
