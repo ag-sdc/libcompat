@@ -9,3 +9,9 @@ libcompat_la_LDFLAGS = -version-info 1:0:0
 
 install-data-hook:
 	$(LN_S) -f compat.h $(DESTDIR)$(includedir)/libcompat.h
+
+install_lib: install-exec
+
+install_headers: install-data
+
+.PHONY: install_lib install_headers
