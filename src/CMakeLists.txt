@@ -9,20 +9,26 @@ add_library(compat_static STATIC pthread.c qsort.c getenv.c progname.c strverscm
 set_target_properties(compat_static PROPERTIES OUTPUT_NAME compat)
 target_include_directories(compat_static PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-install(TARGETS compat compat_static
+install(TARGETS compat
         LIBRARY DESTINATION lib COMPONENT lib
         ARCHIVE DESTINATION lib COMPONENT lib)
 
-install(FILES include/compat.h DESTINATION include COMPONENT headers)
-install(FILES include/libcompat/pthread.h include/libcompat/qsort.h include/libcompat/getenv.h include/libcompat/progname.h include/libcompat/strverscmp.h include/libcompat/versionsort.h DESTINATION include/libcompat COMPONENT headers)
+install(TARGETS compat_static
+        LIBRARY DESTINATION lib COMPONENT dev
+        ARCHIVE DESTINATION lib COMPONENT dev)
 
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E create_symlink compat.h \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/include/libcompat.h\")" COMPONENT headers)
+install(FILES include/compat.h DESTINATION include COMPONENT dev)
+install(FILES include/libcompat/pthread.h include/libcompat/qsort.h include/libcompat/getenv.h include/libcompat/progname.h include/libcompat/strverscmp.h include/libcompat/versionsort.h DESTINATION include/libcompat COMPONENT dev)
+
+install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E create_symlink compat.h \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/include/libcompat.h\")" COMPONENT dev)
 
 add_custom_target(install_lib
     COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_COMPONENT=lib -P ${CMAKE_BINARY_DIR}/cmake_install.cmake
     DEPENDS compat compat_static
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
-add_custom_target(install_headers
-    COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_COMPONENT=headers -P ${CMAKE_BINARY_DIR}/cmake_install.cmake
+add_custom_target(install_dev
+    COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_COMPONENT=dev -P ${CMAKE_BINARY_DIR}/cmake_install.cmake
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
