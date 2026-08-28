@@ -9,21 +9,12 @@
 
 #ifdef __ANDROID__
 
+#include <search.h>
 #include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef struct entry {
-  char *key;
-  void *data;
-} ENTRY;
-
-typedef enum {
-  FIND,
-  ENTER
-} ACTION;
 
 int hcreate(size_t nel);
 void hdestroy(void);
