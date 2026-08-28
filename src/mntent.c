@@ -6,9 +6,10 @@
 
 #ifdef __ANDROID__
 
-#include <libcompat/mntent.h>
 #include <stdio.h>
+#include <mntent.h>
 #include <string.h>
+#include <libcompat/mntent.h>
 
 char *hasmntopt(const struct mntent *mnt, const char *opt) {
   char *o;

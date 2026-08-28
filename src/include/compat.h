@@ -9,15 +9,15 @@
 
 #ifdef __ANDROID__
 
+#include <libcompat/param.h>
 #include <libcompat/pthread.h>
 #include <libcompat/getenv.h>
 #include <libcompat/progname.h>
 #include <libcompat/qsort.h>
 #include <libcompat/strverscmp.h>
 #include <libcompat/versionsort.h>
-#include <libcompat/mntent.h>
-#include <libcompat/param.h>
 #include <libcompat/memory.h>
+#include <libcompat/mntent.h>
 
 #endif
 

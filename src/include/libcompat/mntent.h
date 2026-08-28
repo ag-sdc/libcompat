@@ -10,7 +10,8 @@
 #ifdef __ANDROID__
 
 #include <stdio.h>
-#include <mntent.h>
+
+struct mntent;
 
 #ifdef __cplusplus
 extern "C" {
