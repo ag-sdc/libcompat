@@ -29,7 +29,7 @@ typedef struct {
 
 typedef struct {
   int __allocated;
-  int __used;
+  int __actions_count;
   void *__actions;
   int __pad[16];
 } posix_spawn_file_actions_t;

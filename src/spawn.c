@@ -39,7 +39,7 @@ int posix_spawnattr_setflags(posix_spawnattr_t *attr, short flags) {
 int posix_spawn_file_actions_init(posix_spawn_file_actions_t *file_actions) {
   if (!file_actions) return EINVAL;
   file_actions->__allocated = 0;
-  file_actions->__used = 0;
+  file_actions->__actions_count = 0;
   file_actions->__actions = NULL;
   return 0;
 }
