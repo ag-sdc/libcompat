@@ -4,19 +4,20 @@
  * License v2 as published by the Free Software Foundation.
  */
 
-#ifndef __COMPAT_PROGNAME_H__
-#define __COMPAT_PROGNAME_H__
+#ifndef __COMPAT_MNTENT_H__
+#define __COMPAT_MNTENT_H__
 
 #ifdef __ANDROID__
 
-#include <stdlib.h>
+#include <stdio.h>
+#include <mntent.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern char *program_invocation_name;
-extern char *program_invocation_short_name;
+char *hasmntopt(const struct mntent *mnt, const char *opt);
+int addmntent(FILE *fp, const struct mntent *mnt);
 
 #ifdef __cplusplus
 }

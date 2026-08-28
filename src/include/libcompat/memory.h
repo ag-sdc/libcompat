@@ -4,19 +4,20 @@
  * License v2 as published by the Free Software Foundation.
  */
 
-#ifndef __COMPAT_PROGNAME_H__
-#define __COMPAT_PROGNAME_H__
+#ifndef __COMPAT_MEMORY_H__
+#define __COMPAT_MEMORY_H__
 
 #ifdef __ANDROID__
 
 #include <stdlib.h>
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern char *program_invocation_name;
-extern char *program_invocation_short_name;
+void *valloc(size_t size);
+void *pvalloc(size_t size);
 
 #ifdef __cplusplus
 }

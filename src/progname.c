@@ -2,18 +2,32 @@
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
  * License v2 as published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public
- * License along with this program; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 021110-1307, USA.
  */
 
 #ifdef __ANDROID__
+
+#include <libcompat/progname.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *program_invocation_name = "program";
+char *program_invocation_short_name = "program";
+
+__attribute__((constructor))
+static void __init_progname(int argc, char **argv, char **envp) {
+  (void)argc;
+  (void)envp;
+  if (argv && argv[0]) {
+    program_invocation_name = argv[0];
+    char *slash = strrchr(argv[0], '/');
+    program_invocation_short_name = slash ? slash + 1 : argv[0];
+  } else {
+    const char *p = getprogname();
+    if (p && *p) {
+      program_invocation_name = (char *)p;
+      program_invocation_short_name = (char *)p;
+    }
+  }
+}
 
 #endif
