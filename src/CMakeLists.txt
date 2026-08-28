@@ -29,6 +29,7 @@ install(TARGETS compat_static
         ARCHIVE DESTINATION lib COMPONENT dev)
 
 install(FILES include/compat.h DESTINATION include COMPONENT dev)
+install(FILES include/compat.h DESTINATION include RENAME libcompat.h COMPONENT dev)
 install(FILES
         include/libcompat/pthread.h
         include/libcompat/qsort.h
@@ -40,8 +41,6 @@ install(FILES
         include/libcompat/param.h
         include/libcompat/memory.h
         DESTINATION include/libcompat COMPONENT dev)
-
-install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E create_symlink compat.h "\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/include/libcompat.h")" COMPONENT dev)
 
 add_custom_target(install_lib
     COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_COMPONENT=lib -P ${CMAKE_BINARY_DIR}/cmake_install.cmake
