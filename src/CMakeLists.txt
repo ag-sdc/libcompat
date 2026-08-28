@@ -10,6 +10,7 @@ set(COMPAT_SOURCES
     versionsort.c
     mntent.c
     memory.c
+    spawn.c
 )
 
 add_library(compat SHARED ${COMPAT_SOURCES})
@@ -40,6 +41,8 @@ install(FILES
         include/libcompat/mntent.h
         include/libcompat/param.h
         include/libcompat/memory.h
+        include/libcompat/execinfo.h
+        include/libcompat/spawn.h
         DESTINATION include/libcompat COMPONENT dev)
 
 add_custom_target(install_lib

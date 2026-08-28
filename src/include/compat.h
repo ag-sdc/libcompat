@@ -18,6 +18,8 @@
 #include <libcompat/versionsort.h>
 #include <libcompat/memory.h>
 #include <libcompat/mntent.h>
+#include <libcompat/execinfo.h>
+#include <libcompat/spawn.h>
 
 #endif
 
