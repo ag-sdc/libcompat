@@ -11,6 +11,7 @@ set(COMPAT_SOURCES
     mntent.c
     memory.c
     spawn.c
+    search.c
 )
 
 add_library(compat SHARED ${COMPAT_SOURCES})
@@ -43,6 +44,7 @@ install(FILES
         include/libcompat/memory.h
         include/libcompat/execinfo.h
         include/libcompat/spawn.h
+        include/libcompat/search.h
         DESTINATION include/libcompat COMPONENT dev)
 
 add_custom_target(install_lib

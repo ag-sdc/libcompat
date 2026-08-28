@@ -20,6 +20,7 @@
 #include <libcompat/mntent.h>
 #include <libcompat/execinfo.h>
 #include <libcompat/spawn.h>
+#include <libcompat/search.h>
 
 #endif
 
